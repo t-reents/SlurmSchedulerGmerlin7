@@ -10,5 +10,5 @@ class CustomSlurmScheduler(SlurmScheduler):
         jobnum, state, walltime, queue[=partition], user, numnodes, numcores, title
         """
         command = super()._get_joblist_command(jobs=jobs, user=user)
-        command.append('--clusters=all')
+        command = f"{command} --clusters=all"
         return command
