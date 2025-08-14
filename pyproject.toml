@@ -1,0 +1,12 @@
+[build-system]
+requires = ['flit_core >=3.4,<4']
+build-backend = 'flit_core.buildapi'
+
+[project]
+name = "slurm_scheduler_merlin7"
+version = "0.1.0"
+description = "A custom Slurm scheduler for AiiDA"
+
+
+[project.entry-points."aiida.schedulers"]
+"core.slurm_merlin7" = "slurm_scheduler_merlin7.schedulers:CustomSlurmScheduler"
