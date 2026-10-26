@@ -12,3 +12,11 @@ class CustomSlurmScheduler(SlurmScheduler):
         command = super()._get_joblist_command(jobs=jobs, user=user)
         command = f"{command} --clusters=all"
         return command
+
+    def _get_kill_command(self, jobid: str) -> str:
+        """Return the command to kill the job with specified jobid."""
+        kill_command = super()._get_kill_command(
+            jobid=jobid
+        )
+
+        return f'{kill_command} --clusters=all'
